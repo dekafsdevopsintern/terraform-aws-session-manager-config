@@ -1,5 +1,5 @@
 module "session_manager_config" {
-  source         = "../"
+  source         = "../../"
   product_domain = "tsi"
   environment    = "staging"
 }

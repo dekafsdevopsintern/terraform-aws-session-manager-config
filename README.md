@@ -10,8 +10,11 @@
 
 ## Description
 
-This terraform module creates configuration for session manager preferences or logging. 
+This terraform module creates configuration for session manager preferences or logging.
 
+## Upgrade notes from v0.4.x 
+
+The latest version will destroy the old s3 bucket. If you want to retain the old s3 bucket entries for **a year**, then you can set `keep_old_s3_bucket` variable to `true`.
 
 ## Table of Content
 - [Description](#description)
@@ -77,9 +80,10 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_additional_shell_profile_commands"></a> [additional\_shell\_profile\_commands](#input\_additional\_shell\_profile\_commands) | Additional command to run on shell startup, by default only `bash` command will run in every startup | `list(string)` | `[]` | no |
+| <a name="input_custom_iam_policy_name"></a> [custom\_iam\_policy\_name](#input\_custom\_iam\_policy\_name) | (Optional) To define a different IAM policy name for other requirement (e.g resource region migration) | `string` | `""` | no |
 | <a name="input_cwl_logs_retention_days"></a> [cwl\_logs\_retention\_days](#input\_cwl\_logs\_retention\_days) | Retention period for cloudwatch logs | `number` | `120` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | environment where this infrastructure reside. | `string` | n/a | yes |
-| <a name="input_keep_old_s3_bucket"></a> [keep\_old\_s3\_bucket](#input\_keep\_old\_s3\_bucket) | Option to keep old s3 bucket, by moved old state to new one | `bool` | `false` | no |
+| <a name="input_keep_old_s3_bucket"></a> [keep\_old\_s3\_bucket](#input\_keep\_old\_s3\_bucket) | Option to keep old s3 bucket | `bool` | `false` | no |
 | <a name="input_product_domain"></a> [product\_domain](#input\_product\_domain) | product domain who owns this SSM Session Manager Configuration | `string` | n/a | yes |
 | <a name="input_s3_bucket_description"></a> [s3\_bucket\_description](#input\_s3\_bucket\_description) | description for this bucket. | `string` | `"s3 bucket to store SSM session manager logs"` | no |
 | <a name="input_s3_bucket_prefix"></a> [s3\_bucket\_prefix](#input\_s3\_bucket\_prefix) | (Optional) To write output to a sub-dir, enter a sub-dir name. | `string` | `""` | no |

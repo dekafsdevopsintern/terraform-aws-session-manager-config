@@ -73,7 +73,7 @@ variable "cwl_logs_retention_days" {
 }
 
 variable "keep_old_s3_bucket" {
-  description = "Option to keep old s3 bucket, by moved old state to new one"
+  description = "Option to keep old s3 bucket"
   default     = false
   type        = bool
 }
