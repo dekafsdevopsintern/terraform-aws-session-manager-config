@@ -14,6 +14,8 @@ data "aws_iam_policy_document" "session_manager" {
     effect = "Allow"
 
     actions = [
+      "ssm:DeleteDocument",
+      "ssm:DeleteAssociation",
       "ssm:DescribeAssociation",
       "ssm:DescribeDocument",
       "ssm:GetDeployablePatchSnapshotForInstance",
